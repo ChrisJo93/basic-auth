@@ -1,7 +1,7 @@
 const express = require('express');
 const pool = require('./modules/pool');
 const router = express.Router();
-const encryptLib = require('./');
+const encryptLib = require('./encryption');
 
 router.get('/', (req, res) => {
   const queryCred = `SELECT * FROM "user";`;
