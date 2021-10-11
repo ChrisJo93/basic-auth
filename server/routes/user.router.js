@@ -13,6 +13,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 router.get('/get', (req, res) => {
+  //returns all users in database regardless of auth
   const queryCred = `SELECT * FROM "user";`;
 
   pool
