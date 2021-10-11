@@ -29,6 +29,15 @@ router.post('/register', (req, res) => {
       console.log(`User Registration error, ${error}`);
       res.sendStatus(500);
     });
+
+  router.post('/login', userStrategy.authenticate('local'), (req, res) => {
+    res.sendStatus(200);
+  });
+});
+
+router.post('/logout', (req, res) => {
+  req.logout();
+  res.sendStatus(200);
 });
 
 module.exports = router;
