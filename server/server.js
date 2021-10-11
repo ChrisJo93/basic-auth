@@ -3,11 +3,22 @@ require('dotenv').config();
 
 const app = express();
 const bodyParser = require('body-parser');
+const sessionMiddleware = require('./modules/session-middleware');
 
-const authRouter = require('./route');
+const passport = require('./strategies/user.strategy');
 
+const authRouter = require('./routes/user.router');
+
+//Body Parser Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+//Passport Session Configuration
+app.use(sessionMiddleware);
+
+//Start passport sessions
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/api/auth', authRouter);
 

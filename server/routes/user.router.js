@@ -1,9 +1,18 @@
 const express = require('express');
-const pool = require('./modules/pool');
+const pool = require('../modules/pool');
 const router = express.Router();
-const encryptLib = require('./modules/encryption');
+const encryptLib = require('../modules/encryption');
+const userStrategy = require('../strategies/user.strategy');
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
+  // Send back user object from the session (previously queried from the database)
+  res.send(req.user);
+});
+
+router.get('/get', (req, res) => {
   const queryCred = `SELECT * FROM "user";`;
 
   pool
