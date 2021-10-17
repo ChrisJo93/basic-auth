@@ -31,7 +31,7 @@ export default function Login() {
 
   return (
     <section>
-      <Form className="form" onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <input
           type="text"
           label="username"
@@ -51,7 +51,7 @@ export default function Login() {
         <button className="button" type="submit">
           Submit
         </button>
-      </Form>
+      </form>
       <LogoutButton cred={cred} />
     </section>
   );

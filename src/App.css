@@ -61,5 +61,45 @@
   cursor: pointer;
 }
 
-.nav {
+.nav-0-container {
+  background-color: white;
+  --tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.nav-1-container {
+  margin: auto;
+  max-width: 72rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.nav-2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-3 {
+  display: flex;
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1.75rem * var(--tw-space-x-reverse));
+  margin-left: calc(1.75rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.nav-4-logo {
+  display: flex;
+  justify-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.nav-4-logo-span {
+  font-weight: 600;
+  color: grey;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
