@@ -2,27 +2,26 @@ import React from 'react';
 import { useState } from 'react';
 import './login.css';
 import axios from 'axios';
+import { LogoutButton } from '../LogoutButton';
 
 export default function Login() {
   const [user, setUser] = useState('');
   const [pass, setPass] = useState('');
 
-  const handleChange = (e, state) => {
-    state(e.target.value);
-    console.log(user, pass);
+  const handleChange = (event, state) => {
+    state(event.target.value);
   };
 
   const handleSubmit = (event) => {
-    console.log(user, pass);
     const cred = { username: user, password: pass };
 
     axios
-      .post('http://localhost:5000/api/auth/register', cred)
+      .post('http://localhost:5000/api/auth/login', cred)
       .then((response) => {
-        console.log('made it', response);
+        console.log(response);
       })
       .catch((err) => {
-        console.log('problem in client get', err);
+        console.log(err);
       });
     setUser('');
     setPass('');
@@ -30,9 +29,20 @@ export default function Login() {
     event.preventDefault();
   };
 
+  // const logout = (event) => {
+  //   axios
+  //     .post('http://localhost:5000/api/auth/logout')
+  //     .then((response) => {
+  //       console.log('logged out', response);
+  //     })
+  //     .catch((err) => {
+  //       console.log('problem logging out');
+  //     });
+  // };
+
   return (
     <section>
-      <form className="login_form_container" onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <input
           type="text"
           label="username"
@@ -49,7 +59,10 @@ export default function Login() {
           className="login_input"
           onChange={(e) => handleChange(e, setPass)}
         />
-        <button type="submit">Submit</button>
+        <button className="button" type="submit">
+          Submit
+        </button>
+        <LogoutButton />
       </form>
     </section>
   );

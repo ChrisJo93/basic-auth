@@ -1,6 +1,6 @@
 import './App.css';
 import Nav from './components/Nav';
-import Login from './components/Login';
+import Login from './components/login/Login';
 import Home from './components/Home';
 import Register from './components/Register';
 import {
