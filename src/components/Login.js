@@ -2,18 +2,19 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import LogoutButton from './LogoutButton';
+import { Form, Input, Checkbutton } from 'react-validation';
 
 export default function Login() {
   const [user, setUser] = useState('');
   const [pass, setPass] = useState('');
+
+  const cred = { username: user, password: pass };
 
   const handleChange = (event, state) => {
     state(event.target.value);
   };
 
   const handleSubmit = (event) => {
-    const cred = { username: user, password: pass };
-
     axios
       .post('http://localhost:5000/api/auth/login', cred)
       .then((response) => {
@@ -28,20 +29,9 @@ export default function Login() {
     event.preventDefault();
   };
 
-  // const logout = (event) => {
-  //   axios
-  //     .post('http://localhost:5000/api/auth/logout')
-  //     .then((response) => {
-  //       console.log('logged out', response);
-  //     })
-  //     .catch((err) => {
-  //       console.log('problem logging out');
-  //     });
-  // };
-
   return (
     <section>
-      <form className="form" onSubmit={handleSubmit}>
+      <Form className="form" onSubmit={handleSubmit}>
         <input
           type="text"
           label="username"
@@ -61,8 +51,8 @@ export default function Login() {
         <button className="button" type="submit">
           Submit
         </button>
-        <LogoutButton />
-      </form>
+      </Form>
+      <LogoutButton cred={cred} />
     </section>
   );
 }

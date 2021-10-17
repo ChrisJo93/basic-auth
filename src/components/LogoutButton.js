@@ -4,7 +4,7 @@ export default function LogoutButton(props) {
   const logoutRequest = () => {
     axios
       .post('http://localhost:5000/api/auth/logout', props.credentials)
-      .then((response) => console.log(response))
+      .then((response) => console.log(response, props.cred))
       .catch((error) => console.log(error));
   };
   return (
