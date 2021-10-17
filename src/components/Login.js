@@ -1,8 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import './login.css';
 import axios from 'axios';
-import { LogoutButton } from '../LogoutButton';
+import LogoutButton from './LogoutButton';
 
 export default function Login() {
   const [user, setUser] = useState('');
