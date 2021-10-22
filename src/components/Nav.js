@@ -12,23 +12,14 @@ export default function Nav() {
                 <span className="nav-4-logo-span">Navigation</span>
               </a>
             </div>
-            <div className="nav-5-links"></div>
+            <div className="nav-5-links">
+              <Link to="/">Home</Link>
+              <Link to="/register">Register</Link>
+              <Link to="/login">Login</Link>
+            </div>
           </div>
         </div>
       </div>
     </nav>
   );
-}
-{
-  /* <ul>
-<li>
-  <Link to="/">Home</Link>
-</li>
-<li>
-  <Link to="/register">Register</Link>
-</li>
-<li>
-  <Link to="/login">Login</Link>
-</li>
-</ul> */
 }

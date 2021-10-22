@@ -103,3 +103,19 @@
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
+
+.nav-5-links {
+  /** Mobile **/
+  @media only screen and (max-width: 767px),
+    only screen and (max-device-width: 767px) {
+    opacity: 1;
+  }
+
+  /** Tablet **/
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+  }
+
+  /** Tablet (landscape) **/
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  }
+}
