@@ -28,6 +28,7 @@ router.get('/get', (req, res) => {
 });
 
 router.post('/register', (req, res) => {
+  //sends registered user to database
   const username = req.body.username;
   const password = encryptLib.encryptPassword(req.body.password);
   const queryCred = `INSERT INTO "user" (username, password) VALUES ($1, $2) RETURNING id;`;
