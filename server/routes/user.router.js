@@ -1,11 +1,12 @@
 const express = require('express');
 const pool = require('../modules/pool');
-const router = express.Router();
 const encryptLib = require('../modules/encryption');
 const userStrategy = require('../strategies/user.strategy');
 const {
   rejectUnauthenticated,
 } = require('../modules/authentication-middleware');
+
+const router = express.Router();
 
 router.get('/', rejectUnauthenticated, (req, res) => {
   // Send back user object from the session (previously queried from the database)
